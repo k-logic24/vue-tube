@@ -12,9 +12,10 @@
           selectedDatas.statistics &&
             Number(selectedDatas.statistics.viewCount).toLocaleString()
         }}回再生 ・
-        <!--        {{-->
-        <!--          formatDate(selectedDatas.snippet && selectedData.snippet.publishedAt)-->
-        <!--        }}-->
+        {{
+          selectedDatas.snippet &&
+            formatDate(new Date(selectedDatas.snippet.publishedAt))
+        }}
       </span>
       <hr />
       <span class="text-secondary fsz-12">
@@ -59,7 +60,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      return format(date, "YYYY/MM/DD");
+      return format(date, "yyyy/MM/dd");
     },
     async setSearchResult() {
       const id = this.$route.query["v"];
