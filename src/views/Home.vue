@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="container">
+    <List :payloads="popularDatas" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import List from "@/components/shared/List";
+import { SET_POPULAR } from "@/store/mutation-types";
+import { fetchPopularData } from "@/api";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    List
+  },
+  computed: {
+    popularDatas() {
+      return this.$store.state.popularData;
+    }
+  },
+  created() {
+    fetchPopularData().then(({ data }) => {
+      this.$store.commit(SET_POPULAR, data.items);
+    });
   }
 };
 </script>
