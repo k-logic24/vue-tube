@@ -21,6 +21,16 @@ export const fetchPopularData = async () => {
   });
 };
 
+export const fetchSearchedData = async query => {
+  return await youtube.get("search", {
+    params: {
+      ...params,
+      part: "snippet",
+      q: query
+    }
+  });
+};
+
 export const fetchSelectedData = async id => {
   return await youtube.get("videos", {
     params: {
@@ -37,16 +47,6 @@ export const fetchRelatedData = async id => {
       ...params,
       part: "snippet",
       relatedToVideoId: id
-    }
-  });
-};
-
-export const fetchSearchedData = async query => {
-  return await youtube.get("search", {
-    params: {
-      ...params,
-      part: "snippet",
-      q: query
     }
   });
 };

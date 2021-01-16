@@ -1,6 +1,6 @@
 <template>
   <ul class="card-list">
-    <li v-for="data in datas" :key="data.id">
+    <li v-for="data in datas" :key="data.etag">
       <router-link
         class="card-list__link"
         :to="{ name: 'Watch', query: { v: data.id } }"
@@ -23,9 +23,8 @@
         {{ data.snippet.channelTitle }}
         <br />
         {{
-          `${Number(
-            data.statistics && data.statistics.viewCount.toLocaleString()
-          )}回再生`
+          data.statistics &&
+            `${Number(data.statistics.viewCount.toLocaleString())}回再生`
         }}
       </span>
     </li>
