@@ -3,7 +3,10 @@
     <li v-for="data in datas" :key="data.etag">
       <router-link
         class="card-list__link"
-        :to="{ name: 'Watch', query: { v: data.id.videoId } }"
+        :to="{
+          name: 'Watch',
+          query: { v: typeof data.id === 'object' ? data.id.videoId : data.id }
+        }"
       >
         <figure class="card-list__imgwrap">
           <img
