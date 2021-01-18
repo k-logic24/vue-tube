@@ -3,7 +3,7 @@
     <li v-for="data in datas" :key="data.etag">
       <router-link
         class="card-list__link"
-        :to="{ name: 'Watch', query: { v: data.id } }"
+        :to="{ name: 'Watch', query: { v: data.id.videoId } }"
       >
         <figure class="card-list__imgwrap">
           <img
@@ -15,7 +15,7 @@
       </router-link>
       <router-link
         class="card-list__link"
-        :to="{ name: 'Watch', query: { v: data.id } }"
+        :to="{ name: 'Watch', query: { v: data.id.videoId } }"
       >
         <h2 class="card-list__title">{{ data.snippet.title }}</h2>
       </router-link>
