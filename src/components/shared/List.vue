@@ -5,7 +5,7 @@
         class="card-list__link"
         :to="{
           name: 'Watch',
-          query: { v: typeof data.id === 'object' ? data.id.videoId : data.id }
+          query: { v: getDataId(data) }
         }"
       >
         <figure class="card-list__imgwrap">
@@ -18,7 +18,7 @@
       </router-link>
       <router-link
         class="card-list__link"
-        :to="{ name: 'Watch', query: { v: data.id.videoId } }"
+        :to="{ name: 'Watch', query: { v: getDataId(data) } }"
       >
         <h2 class="card-list__title">{{ data.snippet.title }}</h2>
       </router-link>
@@ -45,6 +45,11 @@ export default {
   computed: {
     datas() {
       return this.payloads;
+    },
+    getDataId() {
+      return function(data) {
+        return typeof data.id === "object" ? data.id.videoId : data.id;
+      };
     }
   }
 };
