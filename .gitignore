@@ -1,23 +1,26 @@
-.DS_Store
+# 設定ファイル
+**/.DS_Store
+**/.idea
+**/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# モジュール類
 node_modules
+
+# ビルド時のディレクトリ
 /dist
 
-
-# local env files
+# env files
 .env.local
 .env.*.local
+.env
 
 # Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
