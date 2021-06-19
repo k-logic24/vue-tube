@@ -1,5 +1,11 @@
 # vue-tube
 
+## prerequisite
+please create `.env` file in the root directory
+```
+VUE_APP_API_KEY=xxx
+```
+
 ## Project setup
 ```
 yarn install
